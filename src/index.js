@@ -27,10 +27,16 @@ const counter = (state = 0,action)=>{
 }
 
 //store
-const store= createStore(counter)
+const store= createStore(counter,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
+
 store.subscribe(()=>console.log(store.getState()))
 
 store.dispatch(increase())
+store.dispatch(increase())
+store.dispatch(increase())
+
 
 ReactDOM.render(<App />,document.getElementById('root'));
 
