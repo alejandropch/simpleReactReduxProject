@@ -26,9 +26,12 @@ const counter = (state = 0,action)=>{
   }
 }
 
+//store
+const store= createStore(counter)
+store.subscribe(()=>console.log(store.getState()))
 
+store.dispatch(increase())
 
 ReactDOM.render(<App />,document.getElementById('root'));
-
 
 reportWebVitals();
