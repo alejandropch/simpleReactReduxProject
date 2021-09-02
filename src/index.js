@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {createStore} from 'redux';
-
+import allMyReducers from './reducers'
 
 //actions
 const increase=()=>{
@@ -15,19 +15,9 @@ const increase=()=>{
 }
 
 //reducer
-const counter = (state = 0,action)=>{
-
-  switch (action.type) {
-    case 'INCREASE':
-      return state+1;
-  
-    default:
-      break;
-  }
-}
 
 //store
-const store= createStore(counter,
+const store= createStore(allMyReducers,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 
