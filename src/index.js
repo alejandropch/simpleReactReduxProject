@@ -5,16 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {createStore} from 'redux';
 import allMyReducers from './reducers'
-
-//actions
-const increase=()=>{
-
-  return {
-   type:'INCREASE'
-  }
-}
-
-//reducer
+import {increase,decrease} from './actions'
+import {Provider} from 'react-redux'
 
 //store
 const store= createStore(allMyReducers,
@@ -24,10 +16,14 @@ const store= createStore(allMyReducers,
 store.subscribe(()=>console.log(store.getState()))
 
 store.dispatch(increase())
-store.dispatch(increase())
+store.dispatch(decrease())
 store.dispatch(increase())
 
 
-ReactDOM.render(<App />,document.getElementById('root'));
+ReactDOM.render(
+<Provider store={store}>
+  <App />
+</Provider>
+,document.getElementById('root'));
 
 reportWebVitals();
